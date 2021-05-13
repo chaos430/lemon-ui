@@ -1,13 +1,8 @@
 <template>
   <div>
-      <Topnav/>
-      <div class="topnav">
-        <div class="logo">LOGO</div>
-      <ul class="menu">
-        <li>菜单1</li>
-        <li>菜单2</li>
-      </ul>
-      </div>
+      <topnav/>
+     
+      
       <div class="banner">
           <h1>柠檬UI</h1>
           <h2>一个厉害的 UI 框架</h2>
@@ -16,7 +11,7 @@
              <router-link to="/doc">开始</router-link>   
           </p>
       </div>
-  </div>
+   </div>
 </template>
 <script lang="ts">
 import topnav from '../components/Topnav.vue'
