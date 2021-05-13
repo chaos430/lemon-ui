@@ -33,8 +33,8 @@ import topnav from '../components/Topnav.vue'
 export default {
     components: {topnav},
     setup(){
-      const asideVisible = inject<Ref<boolean>>('xxx')
-        console.log('Doc aside 获取的asideVisible 为：' + asideVisible.value);
+      const asideVisible = inject<Ref<boolean>>('asideVisible')
+        
         return {asideVisible}
     }
 }
