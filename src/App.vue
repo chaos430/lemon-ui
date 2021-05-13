@@ -1,15 +1,17 @@
 <template>
- <div>hi</div>
- <jun/>
+ <div>导航栏 | 
+   <router-link to="/">Jun</router-link> |
+     <router-link to="/xxx">Jun2</router-link>
+ </div>
+ <hr/>
+<router-view/>
 </template>
 
 <script>
-import Jun from './components/Jun.vue'
+
 
 export default {
   name: 'App',
-  components: {
-    Jun
-  }
+ 
 }
 </script>
