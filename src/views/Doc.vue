@@ -23,7 +23,7 @@
 
 
         </aside>
-        <main>主内容</main>
+        <main><router-view/></main>
       </div>
   </div>
 </template>
