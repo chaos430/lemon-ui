@@ -1,8 +1,8 @@
 <template>
-    <button @click="toggle" :class="{checked:value}"><span></span></button>
+    <button class="lemon-switch" @click="toggle" :class="{'lemon-checked':value}"><span></span></button>
 </template>
 <script lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue"
 
 export default {
     props: {
@@ -12,15 +12,15 @@ export default {
         
         const toggle = () =>{
             context.emit('update:value',!props.value)
-        }
+        };
         return {toggle}
-    }
-}
+    },
+};
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-button{
+.lemon-switch{
     height: $h;
     width: $h*2;
     border:none;
@@ -35,19 +35,27 @@ button{
     width: $h2;
     background: white;
     border-radius: $h2 / 2;
-    transition: left 250ms;
-}
+    transition: all 250ms;
 }
 
-button.checked{
-    background: blue;
+&.lemon-checked{
+    background: #1890ff;
 > span {
     left: calc(100% - #{$h2} - 2px);
+}
 }
 &:focus{
     outline: none;
 }
+&:active {
+    > span {width: $h2 + 4px;
+    
 }
-
+}
+&.lemon-checked:active {
+    >span{width: $h2 + 4px;
+    margin-left: -4px;}
+}
+}
 
 </style>
