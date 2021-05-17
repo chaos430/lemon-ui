@@ -11,7 +11,7 @@
     </div>
 </template>
 <script lang="ts">
-import { computed, onMounted, onUpdated, ref } from 'vue'
+import { computed, onMounted, onUpdated, ref, watchEffect } from 'vue'
 import Tab from './Tab.vue'
 export default {
     props: {
@@ -23,17 +23,17 @@ export default {
         const selectedItem = ref<HTMLDivElement>(null)
         const indicator = ref<HTMLDivElement>(null)
         const container = ref<HTMLDivElement>(null)
-        const x = ()=>{
-        const divs = selectedItem.value
-            const {width} = selectedItem.value.getBoundingClientRect()
+        onMounted(()=>{
+        watchEffect(()=>{
+        const {width} = selectedItem.value.getBoundingClientRect()
             indicator.value.style.width = width + 'px'
          const {left:left1} = container.value.getBoundingClientRect()
          const {left:left2} = selectedItem.value.getBoundingClientRect()
          const left = left2 - left1
          indicator.value.style.left = left + 'px'
-        }
-        onMounted(x)
-        onUpdated(x)
+       })
+        })
+       
         
         const defaults = context.slots.default()
         defaults.forEach((tag)=>{
@@ -41,9 +41,7 @@ export default {
                 throw new Error('Tabs 子标签必须是Tab')
             }
         })
-         const current = computed(() => {
-      return defaults.find(tag => tag.props.title === props.selected)
-    })
+        
        const titles =  defaults.map((tag)=>{
            return tag.props.title
         })
@@ -51,7 +49,6 @@ export default {
       context.emit('update:selected', title)
     }
         return { 
-        current,
         defaults,
         titles,
         select,
