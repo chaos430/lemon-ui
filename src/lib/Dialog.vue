@@ -1,5 +1,6 @@
 <template>
  <template v-if="visible">
+     <Teleport to="body">
     <div class="lemon-dialog-overlay" @click="onClickOverlay">
         
     </div>
@@ -18,6 +19,7 @@
         </footer>
     </div>
     </div>
+    </Teleport>
  </template>
 </template>
 <script lang="ts">
