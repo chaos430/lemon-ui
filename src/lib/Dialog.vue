@@ -5,12 +5,12 @@
     </div>
     <div class="lemon-dialog-wrapper">
         <div class="lemon-dialog">
-        <header>标题
+        <header>
+            <slot name="title"/>
             <span @click="close" class="lemon-dialog-close"></span>
         </header>
         <main>
-            <p>第一行字</p>
-            <p>第二行字</p>
+           <slot name="content"/>
         </main>
         <footer>
             <Button level="main" @click="ok">ok</Button>
@@ -24,6 +24,7 @@
 import Button from './Button.vue'
 export default {
     props: {
+        
         visible: {
             type: Boolean,
             default: false
