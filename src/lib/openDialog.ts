@@ -15,11 +15,7 @@
                 if(newVisible === false){
                     close()
                 }
-            },
-            ok, cancel
-        },{
-                title,content
-            })
+            },ok, cancel},{ title,content})
         }
     })
     app.mount(div)
