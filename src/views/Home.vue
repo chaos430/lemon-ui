@@ -1,6 +1,7 @@
 <template>
-  <div>
-      <topnav/>
+<div>
+  <div class="topnavAndBanner">
+      <Topnav/>
      
       
       <div class="banner">
@@ -12,16 +13,40 @@
           </p>
       </div>
    </div>
+   <div class="features">
+<svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon-vue"></use>
+</svg>
+<svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon-typescript"></use>
+</svg>
+<svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon-light"></use>
+</svg>
+   </div>
+   
+   </div>
 </template>
 <script lang="ts">
-import topnav from '../components/Topnav.vue'
+import Topnav from '../components/Topnav.vue'
 export default {
-    components: {topnav}
+    components: {Topnav}
 }
 </script>
 <style lang="scss" scoped>
+$border-radius: 4px;
+$color:#231e11 ;
+.topnavAndBanner{
+  background: linear-gradient(90deg, rgba(245,188,72,1) 0%, rgba(249,212,76,1) 50%, rgba(245,188,72,1) 100%);
+}
+.features{
+  >svg{
+    width: 64px;
+    height: 64px;
+  }
+}
 .topnav {
-  background: yellow;
+ 
   display: flex;
   padding: 16px;
   > .logo {
@@ -38,23 +63,24 @@ export default {
   }
 }
 .banner {
+  color: $color;
   padding: 100px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: lightgreen;
+ 
   > .actions{
     padding: 8px 0;
     a {
       margin:0 8px;
-      background: #fff;
+      background: transparent;
       display: inline-block;
-      $h: 28px;
-      height: $h;
-      line-height: $h;
-      border-radius: $h/2;
-      padding: 0 8px;
+      border-radius: $border-radius;
+     text-decoration: none;
+      
+      padding: 8px 24px;
+      border: 1px solid $color;
     }
   }
 }
