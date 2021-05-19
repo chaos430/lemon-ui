@@ -100,23 +100,23 @@ $color:#231e11 ;
   }
 }
 
-.topnav {
+// .topnav {
  
-  display: flex;
-  padding: 16px;
-  > .logo {
-    max-width: 6em;
-    margin-right: auto;
-  }
-  > .menu {
-    display: flex;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-    > li {
-      margin: 0 1em;
-    }
-  }
-}
+//   display: flex;
+//   padding: 16px;
+//   > .logo {
+//     max-width: 6em;
+//     margin-right: auto;
+//   }
+//   > .menu {
+//     display: flex;
+//     white-space: nowrap;
+//     flex-wrap: nowrap;
+//     > li {
+//       margin: 0 1em;
+//     }
+//   }
+// }
 .banner {
   color: $color;
   padding: 100px 0;
