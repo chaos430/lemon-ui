@@ -10,10 +10,10 @@ ol {
 }
 
 a {
-    text-decoration: outline;
+    text-decoration: none;
     color: inherit;
     &:hover {
-        text-decoration: none;
+        text-decoration: outline;
         cursor: pointer;
     }
 }
