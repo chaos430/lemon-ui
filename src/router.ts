@@ -24,7 +24,7 @@ const md = filename =>
             path: '/',component: Home
         },
         { path: '/doc',component: Doc, children:[
-            {path: '',component: DocDemo},
+            {path: '',redirect: '/doc/intro'},
             {path: 'intro',component: md('intro')},
             {path: 'get-started',component: md('get-started')},
             {path: 'install',component: md('install')},

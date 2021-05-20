@@ -4,6 +4,7 @@
   
       <div class="content">
         <aside v-if="asideVisible">
+          <div>
           <h2>文档</h2>
           <ol>
             <li>
@@ -35,7 +36,7 @@
           </ol>
 
 
-
+</div>
         </aside>
         <main><router-view/></main>
       </div>
@@ -55,6 +56,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 
+
 .layout {
   display: flex;
   flex-direction: column;
@@ -63,55 +65,55 @@ export default {
     flex-shrink: 0;
   }
   > .content {
+    display: flex;
     flex-grow: 1;
     padding-top: 60px;
     padding-left: 156px;
-    @media (max-width: 500px) {
-      padding-left: 0; 
+    @media (max-width: 500px){
+      padding-left: 0;
     }
-  }
-}
-.content {
-  display: flex;
-  > aside {
-    flex-shrink: 0;
-  }
-  > main {
-    flex-grow: 1;
-    padding: 16px;
-    
-  }
-}
-aside {
-  background: lightblue;
-  width: 150px;
-  padding: 16px 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding-top: 70px;
-  height: 100%;
-  z-index: 10;
-  
-  > h2 {
-    margin-bottom: 4px;
-    padding: 0 16px;
-  }
-  > ol {
-    > li {
-      >a{
- display: block;
-  padding: 4px 16px;
+
+    >aside {
+            background: lightblue;
+            width: 150px;
+            padding: 16px 0;
+             position: fixed;
+              top: 0;
+           left: 0;
+            padding-top: 70px;
+            height: 100%;
+             z-index: 10;
+            >div {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                >h2 {
+                    margin-bottom: 4px;
+                    padding:0 16px;
+                }
+                >ol {
+                    >li {
+                        a {
+                            display: block;
+                            padding: 4px 16px;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+
+    >main{
+      flex-grow: 1;
+            padding: 16px;
+            background: white;
+            border-radius: 6px;
+            overflow: auto;
+    }
+     
       }
-      .router-link-active{
-       
-        background: white;
-  
-}
-    }
   }
- main{
-   overflow: auto;
- }
-}
+
+
+
 </style> 
