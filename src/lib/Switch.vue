@@ -2,7 +2,7 @@
     <button class="lemon-switch" @click="toggle" :class="{'lemon-checked':value}"><span></span></button>
 </template>
 <script lang="ts">
-import { ref } from "vue"
+
 
 export default {
     props: {
