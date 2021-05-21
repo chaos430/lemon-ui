@@ -2,23 +2,19 @@
 一键打开 Dialog
 </demo>
 <template>
-<div>
-  <Button @click="showDialog">打开对话框</Button>
-</div>
+  <div>
+    <Button @click="showDialog">打开对话框</Button>
+  </div>
 </template>
 
 <script lang="ts">
-import Button from '../lib/Button.vue'
-import {
-  ref,
-  h
-} from 'vue'
-import {
-  openDialog
-} from '../lib/openDialog'
+import {Button,openDialog} from '../lib/index'
+
+import { ref, h } from 'vue'
+
 export default {
   components: {
-    Button
+    Button,
   },
   setup() {
     const showDialog = () => {
@@ -30,12 +26,12 @@ export default {
         },
         cancel() {
           console.log('cancel')
-        }
+        },
       })
     }
     return {
-      showDialog
+      showDialog,
     }
-  }
+  },
 }
 </script>

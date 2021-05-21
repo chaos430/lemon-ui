@@ -1,50 +1,50 @@
 <template>
-
-    <button class="lemon-button" :class="classes"
-    :disabled="disabled">
-    <span v-if="loading" class="lemon-loadingIndicator"></span>
-        <slot/>
-    </button>
-
+  <button class="lemon-button"
+          :class="classes"
+          :disabled="disabled">
+    <span v-if="loading"
+          class="lemon-loadingIndicator"></span>
+    <slot />
+  </button>
 </template>
 <script lang="ts">
 import { computed } from 'vue'
 
 export default {
-   props:{
-       theme:{
-           type: String,
-           default: "button"
-       },
-       size: {
-           type: String,
-           default: 'normal'
-       },
-        level: {
+  props: {
+    theme: {
       type: String,
-      default: "normal",
+      default: 'button',
+    },
+    size: {
+      type: String,
+      default: 'normal',
+    },
+    level: {
+      type: String,
+      default: 'normal',
     },
     disabled: {
-        type: Boolean,
-        default: false
+      type: Boolean,
+      default: false,
     },
     loading: {
-        type: Boolean,
-        default: false
-    }
-   },
-   setup(props){
-       const { theme, size, level } = props;
-       const classes = computed(() => {
-           return {
-               [`lemon-theme-${theme}`]: theme,
-           [`lemon-size-${size}`]: size,
-           [`lemon-level-${level}`]: level,
-           };
-       });
-       return {classes};
-   },
-};
+      type: Boolean,
+      default: false,
+    },
+  },
+  setup(props) {
+    const { theme, size, level } = props
+    const classes = computed(() => {
+      return {
+        [`lemon-theme-${theme}`]: theme,
+        [`lemon-size-${size}`]: size,
+        [`lemon-level-${level}`]: level,
+      }
+    })
+    return { classes }
+  },
+}
 </script>
 <style lang="scss">
 $h: 32px;
@@ -102,18 +102,18 @@ $grey: grey;
       background: darken(white, 5%);
     }
   }
- 
-    &.lemon-size-big{
-      font-size: 24px;
-      height: 48px;
-      padding: 0 16px
-    }
-    &.lemon-size-small{
-      font-size: 12px;
-      height: 20px;
-      padding: 0 4px;
-    }
-     &.lemon-theme-button {
+
+  &.lemon-size-big {
+    font-size: 24px;
+    height: 48px;
+    padding: 0 16px;
+  }
+  &.lemon-size-small {
+    font-size: 12px;
+    height: 20px;
+    padding: 0 4px;
+  }
+  &.lemon-theme-button {
     &.lemon-level-main {
       background: $blue;
       color: white;
@@ -160,7 +160,7 @@ $grey: grey;
       }
     }
   }
-   &.lemon-theme-button {
+  &.lemon-theme-button {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
@@ -169,18 +169,19 @@ $grey: grey;
       }
     }
   }
-  &.lemon-theme-link, &.lemon-theme-text {
+  &.lemon-theme-link,
+  &.lemon-theme-text {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
     }
   }
- > .lemon-loadingIndicator{
+  > .lemon-loadingIndicator {
     width: 14px;
     height: 14px;
     display: inline-block;
     margin-right: 4px;
-    border-radius: 8px; 
+    border-radius: 8px;
     border-color: $blue $blue $blue transparent;
     border-style: solid;
     border-width: 2px;
@@ -188,8 +189,11 @@ $grey: grey;
   }
 }
 @keyframes lemon-spin {
-  0%{transform: rotate(0deg)} 
-  100%{transform: rotate(360deg)} 
-
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 </style>
