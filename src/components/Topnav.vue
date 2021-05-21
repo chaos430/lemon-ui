@@ -41,6 +41,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 $color: #231e11;
 .topnav {
   color: $color;
@@ -53,6 +54,7 @@ $color: #231e11;
   z-index: 20;
   justify-content: center;
   align-items: center;
+   box-shadow: 0 5px 5px rgb(51 51 51 / 10%);
   > .logo {
     max-width: 6em;
     margin-right: auto;

@@ -4,7 +4,8 @@
             class="nav" />
 
     <div class="content">
-      <aside v-if="asideVisible">
+      <aside class="aside_menu"
+             :class="{visible:asideVisible}">
         <div>
           <h2>文档</h2>
           <ol>
@@ -67,22 +68,36 @@ export default {
   > .content {
     display: flex;
     flex-grow: 1;
-    padding-top: 60px;
+    padding-top: 80px;
     padding-left: 156px;
     @media (max-width: 500px) {
       padding-left: 0;
     }
 
     > aside {
-      background: lightblue;
       width: 150px;
       padding: 16px 0;
       position: fixed;
       top: 0;
       left: 0;
-      padding-top: 70px;
+      height: auto;
+      margin-top: 80px;
       height: 100%;
       z-index: 10;
+      border-right: 1px solid #e8e8e8;
+      box-shadow: 5px 0 5px rgb(51 51 51 / 10%);
+      padding-bottom: 32px;
+
+      @media (max-width: 500px) {
+        width: 180px;
+        background-color: white;
+        transition: all 0.25s ease;
+        transform: translateX(-200px);
+        &.visible {
+          transform: translateX(0px);
+        }
+      }
+
       > div {
         display: flex;
         flex-direction: column;
@@ -97,6 +112,24 @@ export default {
               display: block;
               padding: 4px 16px;
               text-decoration: none;
+              &:hover {
+                background: #e5f2fa;
+                border-bottom: none;
+              }
+            }
+
+            .router-link-active {
+              position: relative;
+              background-color: #e5f2fa;
+              border-right: none;
+              &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                border-right: 3px solid #6b9ab8;
+              }
             }
           }
         }
